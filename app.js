@@ -10,7 +10,8 @@ const { createPost,
     readPosts,
     updatePostBySlug,
     deletePostBySlug,
-    readPublishedPosts } = require("./utils/crud-post.js");
+    readPublishedPosts,
+    readContainsPosts } = require("./utils/crud-post.js");
 
 //? Create Category
 // createCategory('Alimentazione');
@@ -61,3 +62,6 @@ const { createPost,
 
 //? Read Posts pubblicati
 // readPublishedPosts();
+
+//? Read Posts che che contengono una determinata stringa nel contenuto
+// readContainsPosts('partirà');

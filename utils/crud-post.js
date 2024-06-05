@@ -65,11 +65,19 @@ const readPublishedPosts = () => {
 
 }
 
+// Read Posts che che contengono una determinata stringa nel contenuto
+const readContainsPosts = (text) => {
+    prisma.post.findMany({ where: { content: { contains: text } } })
+        .then(post => console.log(post))
+        .catch(err => console.error(err));
+}
+
 module.exports = {
     createPost,
     readPostBySlug,
     readPosts,
     updatePostBySlug,
     deletePostBySlug,
-    readPublishedPosts
+    readPublishedPosts,
+    readContainsPosts
 };
