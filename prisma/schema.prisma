@@ -19,6 +19,7 @@ model Post {
   categoryId Int?
   tags       Tag[]
   title      String
+  slug       String    @unique
   image      String?
   content    String
   published  Boolean
