@@ -15,13 +15,13 @@ datasource db {
 
 model Post {
   id         Int       @id @default(autoincrement())
-  Category   Category? @relation(fields: [categoryId], references: [id])
-  categoryId Int?
   tags       Tag[]
   title      String
   slug       String    @unique
   image      String?
   content    String
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
   published  Boolean
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
@@ -29,8 +29,8 @@ model Post {
 
 model Category {
   id        Int      @id @default(autoincrement())
-  posts     Post[]
   label     String
+  posts     Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
