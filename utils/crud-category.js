@@ -9,8 +9,8 @@ const createCategory = (label) => {
 };
 
 // Read Category
-const readCategory = () => {
+const readCategories = () => {
     prisma.category.findMany().then(categories => console.log(categories)).catch(err => console.error(err));
 }
 
-module.exports = { createCategory, readCategory };
+module.exports = { createCategory, readCategories };

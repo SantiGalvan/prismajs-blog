@@ -9,8 +9,8 @@ const createTag = (label) => {
 };
 
 // Read Tag
-const readTag = () => {
+const readTags = () => {
     prisma.tag.findMany().then(categories => console.log(categories)).catch(err => console.error(err));
 }
 
-module.exports = { createTag, readTag };
+module.exports = { createTag, readTags };
