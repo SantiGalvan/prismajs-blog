@@ -5,7 +5,12 @@ const { createCategory, readCategories } = require("./utils/crud-category.js");
 const { createTag, readTags } = require("./utils/crud-tag.js");
 
 // CRUD Post
-const { createPost, readPostBySlug, readPosts, updatePostBySlug, deletePostBySlug } = require("./utils/crud-post.js");
+const { createPost,
+    readPostBySlug,
+    readPosts,
+    updatePostBySlug,
+    deletePostBySlug,
+    readPublishedPosts } = require("./utils/crud-post.js");
 
 //? Create Category
 // createCategory('Alimentazione');
@@ -53,3 +58,6 @@ const { createPost, readPostBySlug, readPosts, updatePostBySlug, deletePostBySlu
 
 //? Delete Post
 // deletePostBySlug('europei-2024');
+
+//? Read Posts pubblicati
+// readPublishedPosts();
