@@ -59,7 +59,21 @@ const deletePostBySlug = (slug) => {
 
 // Read Posts pubblicati
 const readPublishedPosts = () => {
-    prisma.post.findMany({ where: { published: true } })
+    prisma.post.findMany({
+        where: { published: true },
+        include: {
+            category: {
+                select: {
+                    label: true
+                }
+            },
+            tags: {
+                select: {
+                    label: true
+                }
+            },
+        }
+    })
         .then(post => console.log(post))
         .catch(err => console.error(err));
 
@@ -67,7 +81,20 @@ const readPublishedPosts = () => {
 
 // Read Posts che che contengono una determinata stringa nel contenuto
 const readContainsPosts = (text) => {
-    prisma.post.findMany({ where: { content: { contains: text } } })
+    prisma.post.findMany({
+        where: { content: { contains: text } }, include: {
+            category: {
+                select: {
+                    label: true
+                }
+            },
+            tags: {
+                select: {
+                    label: true
+                }
+            },
+        }
+    })
         .then(post => console.log(post))
         .catch(err => console.error(err));
 }
