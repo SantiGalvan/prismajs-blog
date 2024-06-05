@@ -17,6 +17,7 @@ model Post {
   id         Int       @id @default(autoincrement())
   Category   Category? @relation(fields: [categoryId], references: [id])
   categoryId Int?
+  tags       Tag[]
   title      String
   image      String?
   content    String
@@ -36,6 +37,7 @@ model Category {
 model Tag {
   id        Int      @id @default(autoincrement())
   label     String
+  posts     Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
